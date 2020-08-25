@@ -28,7 +28,7 @@
 		select * from sales_img where sales_number=#{sales_number} order by image_index
 	</select>
 
-	<!--  -->
+	<!-- 매물 총 개 -->
 	<select id="sales_getCount" parameterType="java.util.HashMap" resultType="int">
 		select COALESCE(count(*), 0) from (
 			select sales_number from sales where (sales_check_blind is null or sales_check_blind=0)
@@ -54,42 +54,47 @@
 		) a
 	</select>
 	
+	<!-- 매물 리스트 검색 포 -->
 	<select id="sales_list" parameterType="java.util.HashMap" resultType="com.kitri.jejusari.dto.SalesDto">
-		<![CDATA[
-			select b.* From (
-				select rownum rnum, a.* From (
-					select * from sales where (sales_check_blind is null or sales_check_blind=0) ]]>
-    					<if test="sales_category_type!=null and !sales_category_type.equals('')">
-						and sales_category_type IN
-						<foreach collection="sales_category_type_list" item="item" index="index"  open="(" separator="," close=")">
-						       #{item}
-						</foreach>
-						</if>
-						<if test="sales_category_rent!=null">
-							<if test="!sales_category_rent.equals('')">
-								and sales_category_rent=#{sales_category_rent}
-							</if>
-						</if>
-						<if test="sales_address!=null and !sales_address.equals('')">
-							and ( (sales_address || sales_title) like '%' || #{sales_address} || '%') 
-						</if>
-						<if test="sales_option!=null and !sales_option.equals('')">
-							<foreach collection="sales_option_list" item="item" index="index"  open="and" separator="and">
-								sales_option like '%'||#{item}||'%'
-							</foreach>
-						</if>
+	<![CDATA[
+	select * From (
+		select row_number() over (
+			order by sales_number desc
+		) as rnum, * 
+		from sales 
+		where (sales_check_blind is null or sales_check_blind=0) ]]>
+	<if test="sales_category_type!=null and !sales_category_type.equals('')">
+		and sales_category_type IN
+		<foreach collection="sales_category_type_list" item="item"
+			index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</if>
+	<if test="sales_category_rent!=null">
+		<if test="!sales_category_rent.equals('')">
+			and sales_category_rent=#{sales_category_rent}
+		</if>
+	</if>
+	<if test="sales_address!=null and !sales_address.equals('')">
+		and ( (sales_address || sales_title) like '%' || #{sales_address} || '%')
+	</if>
+	<if test="sales_option!=null and !sales_option.equals('')">
+		<foreach collection="sales_option_list" item="item"
+			index="index" open="and" separator="and">
+			sales_option like '%'||#{item}||'%'
+		</foreach>
+	</if>
 		<![CDATA[	
-					order by sales_number desc		
-				) a
 			) b 
-			where b.rnum>=#{startRow} and b.rnum<=#{endRow}
+			limit #{boardSize} offset #{startRow}
 		]]>
+		
 	</select>
 	
 	
 	<insert id="sales_write" parameterType="com.kitri.jejusari.dto.SalesDto">
 		insert into sales (sales_number, member_id, sales_date, sales_title, sales_content, sales_category_type, sales_category_rent, sales_deposit, sales_cost, sales_area, sales_address, sales_option, sales_build_year, sales_floor) 
-		values (seq_sales_number.nextval, #{member_id}, sysdate, #{sales_title}, #{sales_content}, #{sales_category_type}, #{sales_category_rent}, #{sales_deposit}, #{sales_cost}, #{sales_area}, #{sales_address}, #{sales_option}, #{sales_build_year}, #{sales_floor} )
+		values (seq_sales_number.nextval, #{member_id}, current_timestamp, #{sales_title}, #{sales_content}, #{sales_category_type}, #{sales_category_rent}, #{sales_deposit}, #{sales_cost}, #{sales_area}, #{sales_address}, #{sales_option}, #{sales_build_year}, #{sales_floor} )
 	</insert>
 	
 	<delete id="sales_delete1" parameterType="com.kitri.jejusari.dto.SalesDto">

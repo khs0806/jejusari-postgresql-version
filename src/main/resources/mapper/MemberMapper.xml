@@ -17,7 +17,7 @@
 			#{member_email},
 			#{member_phone, jdbcType=VARCHAR},
 			#{member_level},
-			sysdate
+			current_timestamp
 		)
 	</insert>
 	
