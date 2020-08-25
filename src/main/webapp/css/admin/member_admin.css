@@ -1,0 +1,35 @@
+@charset "UTF-8";
+	body{
+		overflow-x:hidden;
+	}
+
+	#admin_container{
+		width:80%;
+		margin:10%;
+	}
+	
+	#admin_container>#title{
+		font-weight: bold;
+		font-size: 24px;
+		margin-bottom: 8px;
+	}
+	
+	#admin_container>table{
+		text-align:center;  
+		width:70%;
+	}
+	
+	table,tr,th,td{
+		border: 1px solid gray;
+		border-collapse: collapse;
+	}
+	
+	th{
+		background-color: rgb(84, 207, 43);
+	}
+	
+	#admin_container>.btn-success{
+	  margin-top:20px;
+	  margin-left:74.2%;
+	}
+	

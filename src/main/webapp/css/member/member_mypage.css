@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+body {
+	margin: 0;
+}
+
+#wrap {
+	margin: 0 auto;
+	width: 100%;
+	text-align:center;
+/* 	border: 2px solid red; */
+}
+
+#first {
+	width: 95%;
+	display: inline-block;
+	text-align: left;
+/* 	border: 2px solid blue; */
+}
+
+#first p:first-child, #first p:last-child span {
+	margin-left: 49px;
+}
+
+#first p:last-child span{
+	margin-right: 10px;
+	font-size: 25px;
+}
+
+#first p:first-child, #first p:last-child a {
+	font-size: 16px;
+}
+
+#second {
+	width: 95%;
+	display:inline-block;
+	text-align: left;
+/* 	border: 2px solid blue; */
+}
+
+#second .scrap-cards {
+	margin: 0 40px;
+	text-align: left;
+}
+
+#second .card-body {
+	text-align: right;
+}
+
+#second p {
+	margin-left: 100px;
+	font-size: 25px;
+}
+
+#third {
+	width: 95%;
+	display:inline-block;
+	text-align: left;
+/* 	border: 2px solid blue; */
+}
+
+#third .scrap-cards {
+	margin: 0 40px;
+	text-align: left;
+}
+
+#third .card-body {
+	text-align: right;
+}
+
+#third p {
+	margin-left: 100px;
+	font-size: 25px;
+}
+
+.card-sh {
+	display: inline-block !important;
+	margin: 0 10px 1rem !important;
+}
+
+img {
+	border-radius: 5%;
+}

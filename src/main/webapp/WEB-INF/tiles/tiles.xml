@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions 
+	PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
+	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+	
+	<tiles-definitions>
+		<!-- 레이아웃 작업 -->
+		<definition name="layout" template="/WEB-INF/template/layout.jsp">
+			<put-attribute name="header" value="/WEB-INF/template/header.jsp"/>
+			<put-attribute name="footer" value="/WEB-INF/template/footer.jsp"/>
+		</definition>
+	
+		<!-- Content 작업 -->
+		<definition name="*.tiles" extends="layout">
+			<!-- /WEB-INF/views/a.jsp , /WEB-INF/views/b.jsp {1} 자리에 a하고 b가 들어간다.-->
+			<put-attribute name="content" value="/WEB-INF/views/{1}.jsp"/>
+		</definition>
+		
+		<definition name="*/*.tiles" extends="layout">
+			<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"/>
+		</definition>
+		
+		<definition name="*/*/*.tiles" extends="layout">
+			<put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}.jsp"/>
+		</definition>
+		
+		<!-- tiles를 제외하는 뷰 -->
+		<definition name="empty" template="/WEB-INF/template/empty.jsp">
+		
+		</definition>
+		
+		<definition name="*/*.empty" extends="empty">
+			<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"/>
+		</definition>
+		
+	
+	</tiles-definitions>

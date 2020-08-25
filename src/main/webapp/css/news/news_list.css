@@ -1,0 +1,15 @@
+@charset "UTF-8";
+a {text-decoration: none;}
+
+.table {
+/* 	width: 85%; */
+}
+
+.row {
+	height: 3em;
+	line-height: 3em;
+}
+
+.col-md-1 {
+	float: right;
+}

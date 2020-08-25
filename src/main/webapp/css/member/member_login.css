@@ -1,0 +1,28 @@
+@charset "UTF-8";
+.login {
+	border:1px solid;
+	width:400px;
+	margin: 150px auto;
+	padding: 30px 23px 0px;
+    font-family: SpoqaHanSans;
+	text-align:center;
+	border-color: rgb(225, 225, 225);
+    border-image: initial;
+    border-radius: 6px;
+    color: rgb(34, 34, 34);
+}
+.logo {
+	margin-bottom:30px;
+	font-family: SpoqaHanSans;
+}
+.kakao {
+	margin-bottom:150px;
+}
+.foot {
+	font-size: 12px;
+	margin-bottom:30px;
+}
+.foot img {
+	width: 36px;
+    height: 36px;
+}

@@ -1,0 +1,174 @@
+@charset "UTF-8";
+
+a {
+	text-decoration: none;
+}
+
+li {
+	list-style-type:none;
+}
+
+.footer {
+	overflow:hidden;
+    background-color: #EFEFEF;
+    MARGIN-TOP: 200px;
+    margin:auto;
+}
+
+#footer_body {
+	margin: auto 200px;
+	border:0px solid red;
+	float:left;
+	height:300px;
+}
+
+#footer_body a{
+	color:#000000;
+}
+
+#footer_body > #happycall{
+	float:left;
+	margin:0 100px;
+	height:200px;
+	border:0px solid blue;
+}
+
+#footer_body > #happycall .center{
+	border:0px solid blue;
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+#footer_body > #happycall .ques {
+	border:0px solid blue;
+	overflow: hidden;
+}
+
+#footer_body > #happycall .ques .ask{
+	border:1px solid #CCCCCC;
+	font-size: 0.9em;
+	width:130px;
+	height: 40px;
+	float:left;
+	text-align: center;
+	line-height: 40px;
+	margin-top:10px;
+}
+
+#footer_body > #happycall .ques .callnum{
+	border:0px solid #CCCCCC;
+	font-size: 1.5em;
+	font-weight: bold;
+	height: 40px;
+	float:left;
+	text-align: center;
+	line-height: 40px;
+	margin:5px 0px;
+}
+
+#footer_body > #happycall .ques_side{
+	border:0px solid blue;
+	height: 40px;
+	margin-left:150px;
+}
+
+#footer_body > #happycall .ques_side div:nth-child(1){
+	border:0px solid blue;
+	font-size: 0.7em;
+	color:#000000;
+	margin-top:13px;
+}
+
+#footer_body > #happycall .ques_side div:last-child{
+	font-size: 0.75em;
+	border:0px solid blue;
+	margin-top:0px;
+	color:#8e8e8e;
+}
+
+#footer_body > #exp_kar{
+	border:0px solid blue;
+	height: 200px;
+    float: left;
+    margin: 0px 100px;
+}
+
+#footer_body > #exp_kar .about{
+	border:0px solid blue;
+	height:20px;
+	overflow: hidden;
+	margin-top:5px;
+}
+
+#footer_body > #exp_kar .about ul{
+	overflow: hidden;
+	margin:0px;
+	padding: 0px;
+}
+
+#footer_body > #exp_kar .about li{
+	float:left;
+	margin-right: 10px;
+	font-size: 0.7em;
+}
+
+#footer_body > #exp_kar .exp{
+	border:0px solid blue;
+	font-size: 0.65em;
+	margin-top:20px;
+}
+
+#footer_body > #exp_kar .exp div{
+	margin: 0px;
+	color:#8e8e8e;
+	margin-top:5px;
+}
+
+#footer_body > #exp_kar .exp div a{
+	color:#a800a8;
+}
+
+#footer_body > #exp_kar .corp{
+	border:0px solid blue;
+	font-size: 0.5em;
+	margin-top: 15px;
+	color:#8e8e8e;
+}
+
+#footer_body > #exp_kar .sns ul{
+	overflow: hidden;
+	padding: 0px;
+	margin: 20px 0px 15px;
+}
+
+#footer_body > #exp_kar .sns li{
+	border:1px solid #CCCCCC;
+	border-radius: 1em;
+	font-size: 1.2em;
+	float:left;
+	width:25px;
+	margin-right: 10px;
+	text-align: center;
+}
+
+
+#footer_body > #certi{
+	width:1000px;
+	border-top:1px solid #CCCCCC;
+	margin-bottom: 20px;
+}
+
+#footer_body > #certi ul{
+	overflow:hidden;
+	margin-top:10px;
+}
+
+#footer_body > #certi li{
+	float:left;
+	width:250px;
+	height:50px;
+	border: 1px solid #CCCCCC;
+	margin-right:20px;
+	text-align: center;
+	line-height: 50px;
+}

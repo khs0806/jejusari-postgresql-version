@@ -1,0 +1,57 @@
+@charset "UTF-8";
+	#board{
+		width: 700px;
+		height: 580px;
+		margin: 320px auto;
+	}	/* 정가운데 위치. 전체 테두리*/
+	
+	#box{
+		height: 310px;
+	}
+	
+	#board .text{
+		height: 25px;
+	}
+	
+	label{
+		display: block;
+		width: 140px;
+		height: 25px;
+		float: left;
+		text-align: center;
+		line-height: 25px;
+	}
+	
+	#font{
+		text-align: right;
+	}
+	
+	#board .writer{
+		border: solid 1px black;
+		margin-bottom: 2px;
+	}
+	
+	#board .title{
+		border: solid 1px black;
+		margin-bottom: 2px;
+	}
+	
+	#board .file{
+		border: solid 1px black;
+		margin-bottom: 2px;
+	}
+	
+	#board .category{
+		border: solid 1px black;
+		margin-bottom: 2px;
+	}
+	
+	#board .count{
+		border: solid 1px black;
+		margin-bottom: 2px;
+	}
+	
+	#board .date{
+		border: solid 1px black;
+		margin-bottom: 2px;
+	}

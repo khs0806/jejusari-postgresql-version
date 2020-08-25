@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven />
+	
+	<!-- Autowired config -->
+    <context:annotation-config />
+    
+	<!-- 정적파일(css,js) 경로 -->
+	<resources mapping="/img/**" location="/img/" />
+	<resources mapping="/img_house/**" location="/img_house/" />
+	<resources mapping="/psd/**" location="/psd/" />
+	<resources mapping="/css/**" location="/css/" />
+	<resources mapping="/javascript/**" location="/javascript/" />
+	
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+		<beans:property name="order" value="2"/>
+	</beans:bean> 
+	
+	<!-- Tiles2 -->
+   <beans:bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+      <beans:property name="definitions">
+         <beans:list>
+            <beans:value>/WEB-INF/tiles/tiles.xml</beans:value>
+         </beans:list>
+      </beans:property>
+   </beans:bean>
+   
+   <!-- tiles ViewResolver -->
+   <beans:bean id="tilesViewResolver" class="org.springframework.web.servlet.view.tiles2.TilesViewResolver">
+      <beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView"/>   
+      <beans:property name="order" value="1"/>   
+   </beans:bean>
+   
+   <!-- fileUpload -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="1024000000"/> 
+		<beans:property name="defaultEncoding" value="UTF-8"/>
+	</beans:bean>
+	
+	<!-- 빈 스캔 -->
+	<context:component-scan base-package="com.kitri..*" />
+	
+</beans:beans>

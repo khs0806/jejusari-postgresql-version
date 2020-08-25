@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+.wrap {
+	width: 85%;
+	padding-top: 70px;
+	text-align: cetner;
+	display: inline-block;
+/* 	border: 1px solid black; */
+}
+
+.step img {
+	width: 600px;
+}
+
+.check {
+	width: 600px;
+	display: inline-block;
+/* 	border: 1px solid red; */
+}
+
+.check p:first-child {
+	margin: 30px 0;
+	font-weight: bold;
+	font-size: 25px;
+}
+
+.check p:nth-child(2), .check p:nth-child(3) {
+	margin: 0;
+}
+
+.check .p-2 {
+	margin-top: 22px;
+}
+
+.check input {
+	width: 100px;
+	height: 50px;
+}

@@ -1,0 +1,30 @@
+@charset "UTF-8";
+	#admin_container{
+		width:100%;
+		margin:10%;
+	}
+	
+	#admin_container>#title{
+		font-weight: bold;
+		font-size: 24px;
+		margin-bottom: 20px;
+	}
+	
+	#admin_container>table{
+		text-align:center;  
+		width:80%;
+	}
+	
+	table,tr,th,td{
+		border: 1px solid gray;
+		border-collapse: collapse;
+	}
+	
+	th{
+		background-color: rgb(255, 117, 24);
+	}
+	
+	#admin_container>input{
+	  margin-top:20px;
+	  margin-left:76%;
+	}
