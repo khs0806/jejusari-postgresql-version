@@ -120,14 +120,16 @@ public class MemberController {
 	// 카카오로 로그인 or 회원가입
 	@RequestMapping("/test/join")
 	public String kakaoLogin(HttpServletRequest request, Model model) {
+		//프로젝트 패스URI
+		String path = request.getContextPath();
+		System.out.println("path : " + path);
 		
 		// 카카오의 인증과정
 		String authorize_code = request.getParameter("code");
-		String access_Token = KakaoLoginAPI.kakaoAccessToken(authorize_code);
+		String access_Token = KakaoLoginAPI.kakaoAccessToken(authorize_code, path);
 		
 		// access_token으로 사용자의 카카오 로그인 정보를 가져온다.
 		HashMap<String, Object> userInfo = KakaoLoginAPI.getUserInfo(access_Token);
-		
 		String member_id = (String)userInfo.get("id");
 		String member_name = (String)userInfo.get("nickname");
 		String member_email = (String)userInfo.get("email");

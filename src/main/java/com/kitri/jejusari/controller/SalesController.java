@@ -123,9 +123,9 @@ public class SalesController {
 	public void salesScrap(HttpServletRequest request, HttpServletResponse response) throws Throwable{
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
-
+		
 		int check=salesService.salesScrap(mav);
-		PrintWriter out=response.getWriter();
+		PrintWriter out = response.getWriter();
 		out.print(check);
 	}	
 	

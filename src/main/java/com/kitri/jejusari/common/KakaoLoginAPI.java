@@ -17,7 +17,7 @@ public class KakaoLoginAPI {
 	//카카오 API 앱 키값
 	private static final String APPKEY = "47d269828391ebdbbd9ef43e5d60962c";
 	
-	public static String kakaoAccessToken(String authorize_code) {
+	public static String kakaoAccessToken(String authorize_code, String rootpath) {
 		System.out.println("authorize_code : " + authorize_code);
 		
 		String access_Token = "";
@@ -37,7 +37,7 @@ public class KakaoLoginAPI {
 			StringBuilder sb = new StringBuilder();
 			sb.append("grant_type=authorization_code");
             sb.append("&client_id=" + APPKEY);
-            sb.append("&redirect_uri=http://localhost:8181/jeju/test/join");
+            sb.append("&redirect_uri=http://localhost:8080"+ rootpath +"/test/join");
             sb.append("&code=" + authorize_code);
             bw.write(sb.toString());
             bw.flush();

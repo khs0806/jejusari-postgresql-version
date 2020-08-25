@@ -11,7 +11,7 @@
 		</div>
 		<div class="kakao">
 			<!-- 카카오로 로그인 링크 ----------------------------------------------------------------->
-			<a href="https://kauth.kakao.com/oauth/authorize?client_id=47d269828391ebdbbd9ef43e5d60962c&redirect_uri=http://localhost:8181/jeju/test/join&response_type=code"> <!----------------------------->
+			<a href="https://kauth.kakao.com/oauth/authorize?client_id=47d269828391ebdbbd9ef43e5d60962c&redirect_uri=http://localhost:8080${root}/test/join&response_type=code"> <!----------------------------->
 			<%-- <a href="${root}/member/signup"> --%>
 				<img alt="카카오톡로그인" src="${root}/img/kakao_login_medium_wide.png">
 			</a>

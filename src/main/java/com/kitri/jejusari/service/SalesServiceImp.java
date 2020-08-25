@@ -193,8 +193,8 @@ public class SalesServiceImp implements SalesService {
 	@Override
 	public int salesScrap(ModelAndView mav) {
 		Map<String,Object> map = mav.getModelMap();
-		HttpServletRequest request=(HttpServletRequest) map.get("request");
-		HttpSession session=request.getSession();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		HttpSession session = request.getSession();
 		
 		int sales_number=Integer.parseInt(request.getParameter("sales_number"));
 		String member_id=(String) session.getAttribute("member_id");
@@ -202,14 +202,14 @@ public class SalesServiceImp implements SalesService {
 		map.put("sales_number",sales_number);
 		map.put("member_id", member_id);
 		
-		int check=0;
-		int scrap_check=salesDao.salesScrapCheck(map);
-		if(scrap_check==0) {		//스크랩추가
-			int ok=salesDao.salesScrapDo(map);
-			if(ok>0) check=1;
+		int check = 0;
+		int scrap_check = salesDao.salesScrapCheck(map);
+		if(scrap_check == 0) {		//스크랩추가
+			int ok = salesDao.salesScrapDo(map);
+			if(ok > 0) check=1;
 		}else {				//스크랩삭제
-			int ok=salesDao.salesScrapDelete(map);
-			if(ok>0) check=-1;
+			int ok = salesDao.salesScrapDelete(map);
+			if(ok > 0) check=-1;
 		}
 		return check;
 	}

@@ -20,6 +20,7 @@ public class MemberDaoImp implements MemberDao{
 	
 	@Override
 	public int memberJoin(MemberDto memberDto) {
+		System.out.println("memberDto DAO  " + memberDto.toString());
 		return session.insert("member_join", memberDto);
 	}
 	
@@ -34,7 +35,6 @@ public class MemberDaoImp implements MemberDao{
 		return session.delete("member_delete", member_id);
 	}
 	
-
 	@Override
 	public int dropMember(List<String> list) {
 		return session.delete("dropMember", list);
