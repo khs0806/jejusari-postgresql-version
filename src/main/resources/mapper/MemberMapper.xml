@@ -12,7 +12,7 @@
 	<insert id="member_join">
 		insert into member values (
 			#{member_id}, 
-			seq_member_number.nextval, 
+			nextval('seq_member_number'), 
 			#{member_name}, 
 			#{member_email},
 			#{member_phone, jdbcType=VARCHAR},

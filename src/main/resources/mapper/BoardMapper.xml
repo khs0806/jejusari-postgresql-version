@@ -6,13 +6,13 @@
 <mapper namespace="com.kitri.jejusari.mapper.BoardMapper">
 
 	<insert id="report_insert" parameterType="com.kitri.jejusari.dto.ReportDto">
-		insert into report values(seq_report_number.nextval, #{member_id}, current_timestamp,#{report_title},#{report_content},0,#{sales_number})
+		insert into report values(nextval('seq_report_number'), #{member_id}, current_timestamp,#{report_title},#{report_content},0,#{sales_number})
 		
 	</insert>
 	
 	<!-- 공지사항 -->
 	<insert id = "notice_write" parameterType = "com.kitri.jejusari.dto.NoticeDto">
-		insert into notice(notice_number, notice_title, notice_date, notice_content, notice_count, member_id) values(seq_notice_number.nextval, #{notice_title}, current_timestamp, #{notice_content}, #{notice_count}, #{member_id})
+		insert into notice(notice_number, notice_title, notice_date, notice_content, notice_count, member_id) values(nextval('seq_notice_number'), #{notice_title}, current_timestamp, #{notice_content}, #{notice_count}, #{member_id})
 	</insert>
 	
 	<update id="notice_readCount" parameterType="int">
