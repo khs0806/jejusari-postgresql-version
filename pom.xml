@@ -220,6 +220,12 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		    <version>3.9</version>
 		</dependency>
 		
+		<!-- DB 암호화 -->
+		<dependency>
+		    <groupId>org.jasypt</groupId>
+		    <artifactId>jasypt-spring31</artifactId>
+		    <version>1.9.2</version>
+		</dependency>
 		        
 	</dependencies>
     <build>

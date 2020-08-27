@@ -99,12 +99,19 @@
 	</select> -->
 	
 	<select id="memberadmin_count" resultType="int">
-		select nvl(count(*),0) from member
+		select coalesce(count(*),0) from member
 	</select>
 	
 	<select id="memberadmin_list" parameterType="java.util.HashMap" resultType="com.kitri.jejusari.dto.MemberDto">
 		<![CDATA[
-			select b.* From (select rownum rnum, a.* From (select * from member order by member_number desc) a) b where b.rnum>=#{startRow} and b.rnum<=#{endRow}
+			select a.*
+			from (
+				select row_number() over(
+					order by member_number desc
+				) as rnum, *
+				from member
+			) a
+			limit 10 offset #{startRow};
 		]]>
 	</select>
 	

@@ -86,7 +86,7 @@
 	</if>
 		<![CDATA[	
 			) b 
-			limit #{boardSize} offset #{startRow}
+			limit 10 offset #{startRow}
 		]]>
 		
 	</select>

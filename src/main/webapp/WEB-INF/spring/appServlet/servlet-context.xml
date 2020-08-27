@@ -53,4 +53,24 @@
 	<!-- 빈 스캔 -->
 	<context:component-scan base-package="com.kitri..*" />
 	
+	<!-- Jasypt 설정 -->
+	<bean id="encryptorConfig" class="org.jasypt.encryption.pbe.config.EnvironmentPBEConfig">  
+	       <property name="algorithm" value="PBEWithMD5AndDES" />  
+	       <property name="password" value="암호화 키" />
+	</bean>  
+	 
+	<bean id="encryptor" class="org.jasypt.encryption.pbe.StandardPBEStringEncryptor">  
+	       <property name="config" ref="encryptorConfig" />  
+	</bean>  
+	 
+	<bean class="org.jasypt.spring31.properties.EncryptablePropertyPlaceholderConfigurer">
+	    <constructor-arg ref="encryptor"/>
+	        <property name="locations">
+	            <list>
+	                <value>classpath:config/jdbc.properties.xml</value>
+	            </list>
+	     </property>
+	</bean> 
+	
+	
 </beans:beans>

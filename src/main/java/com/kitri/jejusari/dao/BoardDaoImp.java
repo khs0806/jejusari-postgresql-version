@@ -46,11 +46,8 @@ public class BoardDaoImp implements BoardDao{
 		//공지사항 리스트
 		@Override
 		public List<NoticeDto> noticeList(int startRow, int endRow) {
-			Map<String, Integer> hmap=new HashMap<String, Integer>();
-			hmap.put("startRow", startRow);
-			hmap.put("endRow", endRow);
 			
-			return session.selectList("notice_list", hmap);
+			return session.selectList("notice_list", startRow);
 		}
 		
 		//조회수 증가
@@ -82,11 +79,8 @@ public class BoardDaoImp implements BoardDao{
 		
 		@Override
 		public List<String> reportList(int startRow, int endRow) {
-			Map<String, Integer> hmap=new HashMap<String, Integer>();
-			hmap.put("startRow", startRow);
-			hmap.put("endRow", endRow);
 			
-			return session.selectList("reportadmin_list",hmap);
+			return session.selectList("reportadmin_list", startRow);
 		}
 
 		@Override

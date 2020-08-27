@@ -2,7 +2,7 @@ package com.kitri.jejusari.dto;
 
 import java.util.Date;
 
-public class NoticeDto {
+public class NoticeDto extends Criteria {
 	private int notice_number;
 	private String notice_title;
 	private Date notice_date;

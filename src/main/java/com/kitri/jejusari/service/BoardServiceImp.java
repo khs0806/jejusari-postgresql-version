@@ -289,7 +289,7 @@ public class BoardServiceImp implements BoardService{
 		if(count > 0) {
 			//startRow, endRow
 			System.out.println("currnetPage : " + currentPage);
-			System.out.println("pageNumber : " + pageNumber);
+			System.out.println("pageNumber : " + pageNumber);   
 			noticeList = boardDao.noticeList(startRow, endRow);
 		}
 
@@ -420,7 +420,7 @@ public class BoardServiceImp implements BoardService{
 
 		int startRow = (currentPage - 1) * boardSize + 1;	//1  11 21 31
 		int endRow = currentPage * boardSize;			//10 20 30 40
-
+		
 		//count 사용해서 글이 아예 없는경우 페이징 사라지게
 		int count = boardDao.reportCount();
 		List<String> reportList = null;

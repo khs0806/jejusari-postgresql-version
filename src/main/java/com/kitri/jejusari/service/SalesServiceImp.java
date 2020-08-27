@@ -152,12 +152,16 @@ public class SalesServiceImp implements SalesService {
 	
 	@Override
 	public void salesUpdateOk(ModelAndView mav) {
+		
 		Map<String,Object> map = mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		
 		SalesDto salesDto=(SalesDto) map.get("salesDto");
 		String safeFile = (String) map.get("safeFile");
+		
 		int sales_number=Integer.parseInt(request.getParameter("sales_number"));
 		int pageNumber=Integer.parseInt(request.getParameter("pageNumber"));
+		
 		if (!safeFile.equals("none")) {
 			safeFile = safeFile.substring(safeFile.indexOf("psd") - 1,safeFile.length());
 			SalesImgDto salesImgDto = new SalesImgDto();
@@ -165,17 +169,18 @@ public class SalesServiceImp implements SalesService {
 			salesImgDto.setSales_number(sales_number);
 			salesDao.updateSalesImg(salesImgDto);
 		}
+		
 		System.out.println(salesDto.toString());
-		  map.put("sales_number", sales_number); 
-		  map.put("salesDto",salesDto);
-		  
-		  int check=salesDao.salesUpdate(map); 
-		  System.out.println("updateOk:"+check);
-		  
-		  mav.addObject("pageNumber",pageNumber);
-		  mav.addObject("sales_number",sales_number);
-		  mav.addObject("check",check);
-		  mav.setViewName("sales/sales_updateOk.tiles");
+  	    map.put("sales_number", sales_number); 
+	    map.put("salesDto",salesDto);
+	  
+	    int check=salesDao.salesUpdate(map); 
+	    System.out.println("updateOk:"+check);
+	  
+	    mav.addObject("pageNumber",pageNumber);
+	    mav.addObject("sales_number",sales_number);
+	    mav.addObject("check",check);
+	    mav.setViewName("sales/sales_updateOk.tiles");
 	}
 	
 	@Override

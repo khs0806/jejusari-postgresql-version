@@ -24,12 +24,18 @@
 	</select>
 	
 	<select id="notice_count" resultType="int">
-		select nvl(count(*),0) from notice
+		select coalesce(count(*),0) from notice
 	</select>
 	
 	<select id="notice_list" parameterType="java.util.HashMap" resultType="com.kitri.jejusari.dto.NoticeDto">
 		<![CDATA[
-			select b.* From (select rownum rnum, a.* From (select * from notice order by notice_number desc) a) b where b.rnum>=#{startRow} and b.rnum<=#{endRow}
+			select a.* from ( 
+				select row_number() over (
+					order by notice_number desc
+				) as rnum, * 
+				from notice 
+			) a
+			limit 10 offset #{startRow};
 		]]>
 	</select>
 	
@@ -61,12 +67,19 @@
 	</select>
 	
 	<select id="reportadmin_count" resultType="int">
-		select nvl(count(*),0) from report
+		select coalesce(count(*),0) from report
 	</select>
 	
 	<select id="reportadmin_list" parameterType="java.util.HashMap" resultType="com.kitri.jejusari.dto.ReportDto">
 		<![CDATA[
-			select b.* From (select rownum rnum, a.* From (select * from report order by report_number desc) a) b where b.rnum>=#{startRow} and b.rnum<=#{endRow}
+			select a.*
+			from (
+				select row_number() over (
+					order by report_number desc 
+				) as rnum, *
+				from report
+			) a
+			limit 10 offset #{startRow};
 		]]>
 	</select>
 	
